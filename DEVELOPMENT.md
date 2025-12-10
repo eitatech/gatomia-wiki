@@ -14,8 +14,6 @@ gatowiki/
 │   │   └── adapters/         # External integrations
 │   ├── src/                  # Web application
 │   │   ├── be/               # Backend (dependency analysis, agents)
-│   │   │   ├── agent_orchestrator.py
-│   │   │   ├── agent_tools/
 │   │   │   ├── cluster_modules.py
 │   │   │   ├── dependency_analyzer/
 │   │   │   ├── documentation_generator.py
@@ -212,21 +210,24 @@ graph TB
 gatowiki analyze --verbose
 
 # Environment variable
-export CODEWIKI_LOG_LEVEL=DEBUG
+export GATOWIKI_LOG_LEVEL=DEBUG
 ```
 
 ### Common Issues
 
 **Tree-sitter parser errors**:
+
 - Ensure language parsers are properly installed
 - Check file encoding (UTF-8 expected)
 
 **LLM API errors**:
+
 - Verify API keys and endpoints
 - Check rate limits
 - Enable retry logic
 
 **Memory issues with large repositories**:
+
 - Adjust module decomposition threshold
 - Increase delegation depth limit
 
@@ -239,6 +240,6 @@ export CODEWIKI_LOG_LEVEL=DEBUG
 ## Support
 
 For development questions:
-- GitHub Issues: https://github.com/FSoft-AI4Code/GatoWiki/issues
-- Main Documentation: [README.md](README.md)
 
+- GitHub Issues: <https://github.com/eitatech/gatomia-wiki/issues>
+- Main Documentation: [README.md](README.md)

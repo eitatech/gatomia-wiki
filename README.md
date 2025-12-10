@@ -308,8 +308,8 @@ GatoWiki employs a three-stage process for comprehensive documentation generatio
 **General Resources**:
 - 🐳 **[Docker Deployment](docker/DOCKER_README.md)** - Containerized deployment instructions
 - 🛠️ **[Development Guide](DEVELOPMENT.md)** - Project structure, architecture, and contributing guidelines
-- 📊 **[GatoWikiBench](https://github.com/FSoft-AI4Code/GatoWikiBench)** - Repository-level documentation benchmark
-- 🎬 **[Live Demo](https://fsoft-ai4code.github.io/gatowiki-demo/)** - Interactive demo and examples
+- 📊 **[GatoWikiBench](https://github.com/eitatech/gatomia-wiki-bench)** - Repository-level documentation benchmark
+- 🎬 **[Live Demo](https://demo.gatomia.xyz)** - Interactive demo and examples
 
 ### Academic Resources
 - **[Paper](https://arxiv.org/abs/2510.24428)** - Full research paper with detailed methodology and results from the original research that GatoWiki was created.
