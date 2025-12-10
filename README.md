@@ -302,7 +302,7 @@ GatoWiki employs a three-stage process for comprehensive documentation generatio
 
 **GitHub Copilot Integration (v0.25.5+)**:
 - 📖 **[GitHub Copilot Integration Guide](./docs/github-copilot-integration.md)** - Complete workflow, setup, and usage guide
-- 🔄 **[Migration Guide](./docs/migration-to-github-copilot.md)** - Migrating from v1.x to v0.25.5
+- 🔄 **[Migration Guide](./docs/migration-to-github-copilot.md)** - Migrating from API version to v0.25.5
 - 🎨 **[Agent Customization Guide](./docs/customizing-agents.md)** - Customize agents for your team
 
 **General Resources**:
