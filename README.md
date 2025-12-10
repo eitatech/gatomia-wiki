@@ -26,7 +26,7 @@
 
 > **⚠️ IMPORTANT: GatoWiki v0.25.5 requires GitHub Copilot**  
 > This version uses GitHub Copilot agents instead of direct API calls.  
-> [Migration Guide](./docs/migration-to-github-copilot.md) | [Integration Guide](./docs/github-copilot-integration.md)
+> [Integration Guide](./docs/github-copilot-integration.md)
 
 ## Quick Start
 
