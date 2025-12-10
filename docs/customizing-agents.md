@@ -11,6 +11,7 @@ GatoWiki's GitHub Copilot agents are fully customizable through markdown definit
 ```
 .github/
 ├── agents/
+│   ├── gatowiki.agent.md                 # Entry point agent
 │   ├── gatowiki-orchestrator.agent.md    # Complex module orchestration
 │   └── gatowiki-leaf.agent.md            # Simple module documentation
 └── prompts/

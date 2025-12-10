@@ -481,8 +481,8 @@ Guide for handling errors during documentation generation.
 | Module Name Pattern | Normalized Filename | Example |
 |-------------------|---------------------|----------|
 | Root/repository level | `overview.md` | `src` → `overview.md` |
-| Backend modules | `backend.md` | `src/be`, `src.be` → `backend.md` |
-| Frontend modules | `frontend.md` | `src/fe`, `src.fe` → `frontend.md` |
+| Backend modules | `backend.md` | `src/core`, `src.core` → `backend.md` |
+| Frontend modules | `frontend.md` | `src/web`, `src.fe` → `frontend.md` |
 | Path separators | Use last segment | `api/routes` → `routes.md` |
 | Dot separators | Replace with dash | `api.routes` → `api-routes.md` |
 | CamelCase/PascalCase | Convert to kebab-case | `UserService` → `user-service.md` |

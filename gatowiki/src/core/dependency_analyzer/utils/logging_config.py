@@ -15,7 +15,7 @@ Color Scheme:
     - Module Name: Magenta
     
 Usage:
-    from gatowiki.src.be.dependency_analyzer.utils.logging_config import setup_logging
+    from gatowiki.src.core.dependency_analyzer.utils.logging_config import setup_logging
     
     # Setup colored logging for the entire application
     setup_logging(level=logging.INFO)

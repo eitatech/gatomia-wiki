@@ -19,7 +19,7 @@ from gatowiki.cli.models.job import DocumentationJob, LLMConfig
 from gatowiki.cli.utils.errors import APIError
 
 # Import backend modules
-from gatowiki.src.be.documentation_generator import DocumentationGenerator
+from gatowiki.src.core.documentation_generator import DocumentationGenerator
 from gatowiki.src.config import Config as BackendConfig, set_cli_context
 
 
@@ -77,10 +77,10 @@ class CLIDocumentationGenerator:
     
     def _configure_backend_logging(self):
         """Configure backend logger for CLI use with colored output."""
-        from gatowiki.src.be.dependency_analyzer.utils.logging_config import ColoredFormatter
+        from gatowiki.src.core.dependency_analyzer.utils.logging_config import ColoredFormatter
         
         # Get backend logger (parent of all backend modules)
-        backend_logger = logging.getLogger('gatowiki.src.be')
+        backend_logger = logging.getLogger('gatowiki.src.core')
         
         # Remove existing handlers to avoid duplicates
         backend_logger.handlers.clear()
@@ -202,7 +202,7 @@ class CLIDocumentationGenerator:
             self.progress_tracker.update_stage(0.5, "Clustering modules...")
         
         # Import clustering function
-        from gatowiki.src.be.cluster_modules import cluster_modules
+        from gatowiki.src.core.cluster_modules import cluster_modules
         from gatowiki.src.utils import file_manager
         from gatowiki.src.config import FIRST_MODULE_TREE_FILENAME, MODULE_TREE_FILENAME
         

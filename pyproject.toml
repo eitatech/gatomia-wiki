@@ -86,13 +86,13 @@ packages = [
     "gatowiki.cli.utils", 
     "gatowiki.cli.adapters",
     "gatowiki.src",
-    "gatowiki.src.be",
-    "gatowiki.src.be.dependency_analyzer",
-    "gatowiki.src.be.dependency_analyzer.analysis",
-    "gatowiki.src.be.dependency_analyzer.analyzers",
-    "gatowiki.src.be.dependency_analyzer.models",
-    "gatowiki.src.be.dependency_analyzer.utils",
-    "gatowiki.src.fe"
+    "gatowiki.src.core",
+    "gatowiki.src.core.dependency_analyzer",
+    "gatowiki.src.core.dependency_analyzer.analysis",
+    "gatowiki.src.core.dependency_analyzer.analyzers",
+    "gatowiki.src.core.dependency_analyzer.models",
+    "gatowiki.src.core.dependency_analyzer.utils",
+    "gatowiki.src.web"
 ]
 
 [tool.setuptools.package-data]

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
-from gatowiki.src.be.dependency_analyzer.models.core import Node, CallRelationship, Repository
+from gatowiki.src.core.dependency_analyzer.models.core import Node, CallRelationship, Repository
 
 
 class AnalysisResult(BaseModel):

@@ -7,7 +7,7 @@ import sys
 import os
 
 
-from gatowiki.src.be.dependency_analyzer.models.core import Node, CallRelationship
+from gatowiki.src.core.dependency_analyzer.models.core import Node, CallRelationship
 
 logger = logging.getLogger(__name__)
 

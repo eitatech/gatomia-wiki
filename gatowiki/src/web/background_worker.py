@@ -15,7 +15,7 @@ from queue import Queue
 from typing import Dict
 from dataclasses import asdict
 
-from gatowiki.src.be.documentation_generator import DocumentationGenerator
+from gatowiki.src.core.documentation_generator import DocumentationGenerator
 from gatowiki.src.config import Config
 from .models import JobStatus
 from .cache_manager import CacheManager

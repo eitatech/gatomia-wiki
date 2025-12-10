@@ -1,8 +1,8 @@
 from typing import Dict, List, Any
 import os
 from gatowiki.src.config import Config
-from gatowiki.src.be.dependency_analyzer.ast_parser import DependencyParser
-from gatowiki.src.be.dependency_analyzer.topo_sort import build_graph_from_components, get_leaf_nodes
+from gatowiki.src.core.dependency_analyzer.ast_parser import DependencyParser
+from gatowiki.src.core.dependency_analyzer.topo_sort import build_graph_from_components, get_leaf_nodes
 from gatowiki.src.utils import file_manager
 
 import logging

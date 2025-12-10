@@ -7,8 +7,8 @@ import traceback
 logger = logging.getLogger(__name__)
 
 # Local imports
-from gatowiki.src.be.dependency_analyzer import DependencyGraphBuilder
-from gatowiki.src.be.cluster_modules import cluster_modules
+from gatowiki.src.core.dependency_analyzer import DependencyGraphBuilder
+from gatowiki.src.core.cluster_modules import cluster_modules
 from gatowiki.src.config import (
     Config,
     FIRST_MODULE_TREE_FILENAME,

@@ -9,12 +9,12 @@ AST parsing for call graph generation.
 import logging
 from typing import Dict, List, Optional, Any
 from pathlib import Path
-from gatowiki.src.be.dependency_analyzer.utils.security import safe_open_text, assert_safe_path
-from gatowiki.src.be.dependency_analyzer.analysis.repo_analyzer import RepoAnalyzer
-from gatowiki.src.be.dependency_analyzer.analysis.call_graph_analyzer import CallGraphAnalyzer
-from gatowiki.src.be.dependency_analyzer.analysis.cloning import clone_repository, cleanup_repository, parse_github_url
-from gatowiki.src.be.dependency_analyzer.models.analysis import AnalysisResult
-from gatowiki.src.be.dependency_analyzer.models.core import Repository
+from gatowiki.src.core.dependency_analyzer.utils.security import safe_open_text, assert_safe_path
+from gatowiki.src.core.dependency_analyzer.analysis.repo_analyzer import RepoAnalyzer
+from gatowiki.src.core.dependency_analyzer.analysis.call_graph_analyzer import CallGraphAnalyzer
+from gatowiki.src.core.dependency_analyzer.analysis.cloning import clone_repository, cleanup_repository, parse_github_url
+from gatowiki.src.core.dependency_analyzer.models.analysis import AnalysisResult
+from gatowiki.src.core.dependency_analyzer.models.core import Repository
 
 
 logger = logging.getLogger(__name__)

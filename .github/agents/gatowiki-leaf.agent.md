@@ -348,8 +348,8 @@ obj.MethodName(value);
    | Original module_name | Normalized filename |
    |---------------------|---------------------|
    | `src` or root module | `overview.md` |
-   | `src/be` or `src.be` or `src-be` | `backend.md` |
-   | `src/fe` or `src.fe` or `src-fe` | `frontend.md` |
+   | `src/core` or `src.core` or `src-be` | `backend.md` |
+   | `src/web` or `src.fe` or `src-fe` | `frontend.md` |
    | `cli` | `cli.md` |
    | `api` | `api.md` |
    | `utils` or `utilities` | `utils.md` |
@@ -364,8 +364,8 @@ obj.MethodName(value);
    **Normalization Steps**:
    ```
    1. IF module is root/repository → "overview.md"
-   2. IF contains "src/be" or "src.be" or "backend" → "backend.md"
-   3. IF contains "src/fe" or "src.fe" or "frontend" → "frontend.md"
+   2. IF contains "src/core" or "src.core" or "backend" → "backend.md"
+   3. IF contains "src/web" or "src.fe" or "frontend" → "frontend.md"
    4. IF contains "/" → Take last segment after "/"
    5. IF contains "." → Replace "." with "-"
    6. Convert to lowercase
@@ -410,7 +410,7 @@ obj.MethodName(value);
    **Examples**:
    - "utils" → `"documentation": "docs/utils.md"`
    - "cli/commands" → `"documentation": "docs/commands.md"`
-   - "src/fe" → `"documentation": "docs/frontend.md"`
+   - "src/web" → `"documentation": "docs/frontend.md"`
 
 3. **Write** updated JSON back
 
@@ -431,7 +431,7 @@ Documentation generated for '<module_name>':
 **Example reports**:
 - "✓ Created docs/utils.md" (for utils module)
 - "✓ Created docs/commands.md" (for cli/commands)
-- "✓ Created docs/frontend.md" (for src/fe)
+- "✓ Created docs/frontend.md" (for src/web)
 
 ## Available Tools
 

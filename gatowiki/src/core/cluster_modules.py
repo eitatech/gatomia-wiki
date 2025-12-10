@@ -3,8 +3,8 @@ from collections import defaultdict
 import logging
 logger = logging.getLogger(__name__)
 
-from gatowiki.src.be.dependency_analyzer.models.core import Node
-from gatowiki.src.be.utils import count_tokens
+from gatowiki.src.core.dependency_analyzer.models.core import Node
+from gatowiki.src.core.utils import count_tokens
 from gatowiki.src.config import MAX_TOKEN_PER_MODULE, Config
 
 # NOTE: LLM-based clustering removed - GitHub Copilot agents handle module clustering
@@ -172,7 +172,7 @@ def cluster_modules(
         
         # Extract directory path
         # e.g., "gatowiki/cli/commands/config.py" -> "cli"
-        #       "src/be/analyzer/parser.py" -> "be"
+        #       "src/core/analyzer/parser.py" -> "be"
         parts = file_path.split('/')
         
         # Skip if file is at root
@@ -180,15 +180,15 @@ def cluster_modules(
             continue
         
         # Skip common top-level directories and use next level
-        # e.g., "gatowiki/cli/..." -> "cli", "gatowiki/src/be/..." -> "src/be"
+        # e.g., "gatowiki/cli/..." -> "cli", "gatowiki/src/core/..." -> "src/core"
         if parts[0] in ['gatowiki', 'lib', 'app'] and len(parts) > 2:
-            # For gatowiki/cli -> "cli", gatowiki/src/be -> "src/be"
+            # For gatowiki/cli -> "cli", gatowiki/src/core -> "src/core"
             if parts[1] == 'src' and len(parts) > 3:
-                module_name = f"{parts[1]}/{parts[2]}"  # src/be, src/fe, etc
+                module_name = f"{parts[1]}/{parts[2]}"  # src/core, src/web, etc
             else:
                 module_name = parts[1]  # cli, etc
         elif parts[0] == 'src' and len(parts) > 2:
-            # For src/be/... -> "be"
+            # For src/core/... -> "be"
             module_name = parts[1]
         else:
             module_name = parts[0]

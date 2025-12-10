@@ -113,7 +113,7 @@ def analyze_command(
         logger.step("Analyzing code structure...", 2, 3)
         
         from gatowiki.src.config import Config
-        from gatowiki.src.be.dependency_analyzer import DependencyGraphBuilder
+        from gatowiki.src.core.dependency_analyzer import DependencyGraphBuilder
         from gatowiki.src.utils import file_manager
         from gatowiki.src.config import FIRST_MODULE_TREE_FILENAME, MODULE_TREE_FILENAME
         import os
@@ -142,7 +142,7 @@ def analyze_command(
         # Perform module clustering
         logger.step("Clustering modules...", 3, 3)
         
-        from gatowiki.src.be.cluster_modules import cluster_modules
+        from gatowiki.src.core.cluster_modules import cluster_modules
         
         working_dir = str(output_dir.absolute())
         file_manager.ensure_directory(working_dir)

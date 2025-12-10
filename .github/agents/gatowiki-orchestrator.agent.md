@@ -202,8 +202,8 @@ sequenceDiagram
    | Original module_name | Normalized filename |
    |---------------------|---------------------|
    | `src` or root module | `overview.md` |
-   | `src/be` or `src.be` or `src-be` | `backend.md` |
-   | `src/fe` or `src.fe` or `src-fe` | `frontend.md` |
+   | `src/core` or `src.core` or `src-be` | `backend.md` |
+   | `src/web` or `src.fe` or `src-fe` | `frontend.md` |
    | `cli` | `cli.md` |
    | `api` | `api.md` |
    | `utils` or `utilities` | `utils.md` |
@@ -218,8 +218,8 @@ sequenceDiagram
    **Normalization Algorithm**:
    ```
    1. IF module is root/repository level → "overview.md"
-   2. IF module_name contains "src/be" or "src.be" or "backend" → "backend.md"
-   3. IF module_name contains "src/fe" or "src.fe" or "frontend" → "frontend.md"
+   2. IF module_name contains "src/core" or "src.core" or "backend" → "backend.md"
+   3. IF module_name contains "src/web" or "src.fe" or "frontend" → "frontend.md"
    4. IF module_name contains "/" → Take last part after "/"
    5. IF module_name contains "." → Replace "." with "-"
    6. Convert to lowercase
@@ -230,8 +230,8 @@ sequenceDiagram
    
    Examples:
    - Module "src" → `docs/overview.md`
-   - Module "src/be" → `docs/backend.md`
-   - Module "src/fe" → `docs/frontend.md`
+   - Module "src/core" → `docs/backend.md`
+   - Module "src/web" → `docs/frontend.md`
    - Module "cli/commands" → `docs/commands.md`
    - Module "api.routes" → `docs/routes.md`
    - Module "UserService" → `docs/user-service.md`
@@ -264,8 +264,8 @@ sequenceDiagram
    
    Examples:
    - Module "src" → `"documentation": "docs/overview.md"`
-   - Module "src/be" → `"documentation": "docs/backend.md"`
-   - Module "src/fe" → `"documentation": "docs/frontend.md"`
+   - Module "src/core" → `"documentation": "docs/backend.md"`
+   - Module "src/web" → `"documentation": "docs/frontend.md"`
 
 3. **Write** updated JSON back to file
 
@@ -285,8 +285,8 @@ Documentation generated for '<module_name>':
 
 **Example reports**:
 - "✓ Created docs/overview.md" (for src module)
-- "✓ Created docs/backend.md" (for src/be module)
-- "✓ Created docs/frontend.md" (for src/fe module)
+- "✓ Created docs/backend.md" (for src/core module)
+- "✓ Created docs/frontend.md" (for src/web module)
 
 ## Language-Specific Guidelines
 

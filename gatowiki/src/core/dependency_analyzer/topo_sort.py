@@ -10,7 +10,7 @@ import logging
 from typing import Dict, List, Set, Any
 from collections import deque
 
-from gatowiki.src.be.dependency_analyzer.models.core import Node
+from gatowiki.src.core.dependency_analyzer.models.core import Node
 
 logger = logging.getLogger(__name__)
 

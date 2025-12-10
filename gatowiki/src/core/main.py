@@ -13,7 +13,7 @@ import argparse
 import asyncio
 
 # Configure logging and monitoring
-from gatowiki.src.be.dependency_analyzer.utils.logging_config import setup_logging
+from gatowiki.src.core.dependency_analyzer.utils.logging_config import setup_logging
 
 # Initialize colored logging
 setup_logging(level=logging.INFO)
@@ -21,7 +21,7 @@ setup_logging(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Local imports
-from gatowiki.src.be.documentation_generator import DocumentationGenerator
+from gatowiki.src.core.documentation_generator import DocumentationGenerator
 from gatowiki.src.config import (
     Config,
 )

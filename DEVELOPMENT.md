@@ -13,12 +13,12 @@ gatowiki/
 │   │   ├── utils/            # Utilities
 │   │   └── adapters/         # External integrations
 │   ├── src/                  # Web application
-│   │   ├── be/               # Backend (dependency analysis, agents)
+│   │   ├── core/               # Backend (dependency analysis, agents)
 │   │   │   ├── cluster_modules.py
 │   │   │   ├── dependency_analyzer/
 │   │   │   ├── documentation_generator.py
 │   │   │   └── llm_services.py
-│   │   └── fe/               # Frontend (web interface)
+│   │   └── web/               # Frontend (web interface)
 │   │       ├── web_app.py
 │   │       ├── routes.py
 │   │       ├── github_processor.py
@@ -69,25 +69,25 @@ pip install -r requirements.txt
 
 ### Backend Architecture
 
-#### 1. Dependency Analysis (`src/be/dependency_analyzer/`)
+#### 1. Dependency Analysis (`src/core/dependency_analyzer/`)
 
 - **AST Parser**: Tree-sitter based parsing for 7 languages
 - **Dependency Graph Builder**: Constructs call graphs and dependency relationships
 - **Analyzers**: Language-specific analyzers (Python, Java, JavaScript, TypeScript, C, C++, C#)
 
-#### 2. Module Clustering (`src/be/cluster_modules.py`)
+#### 2. Module Clustering (`src/core/cluster_modules.py`)
 
 - Hierarchical decomposition of repository structure
 - Feature-oriented module partitioning
 - Topological sorting for dependency ordering
 
-#### 3. Agent System (`src/be/agent_orchestrator.py`)
+#### 3. Agent System (`src/core/agent_orchestrator.py`)
 
 - Recursive agent-based documentation generation
 - Dynamic delegation for complex modules
 - Cross-module reference management
 
-#### 4. Agent Tools (`src/be/agent_tools/`)
+#### 4. Agent Tools (`src/core/agent_tools/`)
 
 - `read_code_components.py`: Code reading utilities
 - `generate_sub_module_documentations.py`: Sub-module documentation generation
@@ -96,7 +96,7 @@ pip install -r requirements.txt
 
 ### Frontend Architecture
 
-#### Web Application (`src/fe/`)
+#### Web Application (`src/web/`)
 
 - **FastAPI Backend**: `web_app.py`, `routes.py`
 - **GitHub Integration**: `github_processor.py`
@@ -121,7 +121,7 @@ pip install -r requirements.txt
 
 To add support for a new programming language:
 
-1. **Add language analyzer** in `src/be/dependency_analyzer/analyzers/`:
+1. **Add language analyzer** in `src/core/dependency_analyzer/analyzers/`:
 
 ```python
 # new_language.py
@@ -140,7 +140,7 @@ class NewLanguageAnalyzer(BaseAnalyzer):
         pass
 ```
 
-2. **Register the analyzer** in `src/be/dependency_analyzer/ast_parser.py`:
+2. **Register the analyzer** in `src/core/dependency_analyzer/ast_parser.py`:
 
 ```python
 LANGUAGE_ANALYZERS = {
@@ -234,7 +234,7 @@ export GATOWIKI_LOG_LEVEL=DEBUG
 ## Performance Optimization
 
 - **Caching**: Results are cached to avoid redundant processing
-- **Parallel Processing**: Multiple modules can be processed concurrently
+- **Parallel Processing**: Multiple modules can core processed concurrently
 - **Incremental Updates**: Only process changed modules (future work)
 
 ## Support

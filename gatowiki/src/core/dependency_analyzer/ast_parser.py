@@ -7,8 +7,8 @@ from typing import Dict, List, Set, Tuple, Optional, Any, Union
 from pathlib import Path
 import re
 
-from gatowiki.src.be.dependency_analyzer.analysis.analysis_service import AnalysisService
-from gatowiki.src.be.dependency_analyzer.models.core import Node
+from gatowiki.src.core.dependency_analyzer.analysis.analysis_service import AnalysisService
+from gatowiki.src.core.dependency_analyzer.models.core import Node
 
 
 logger = logging.getLogger(__name__)
