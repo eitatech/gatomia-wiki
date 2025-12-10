@@ -1,4 +1,4 @@
-<h1 align="center">Gatomia Code Wiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
+<h1 align="center">GatomIA Code Wiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
 
 <p align="center">
   <strong>AI-Powered Repository Documentation Generation</strong> • <strong>Multi-Language Support</strong> • <strong>Architecture-Aware Analysis</strong>
@@ -100,7 +100,7 @@ gatowiki publish --github-pages --create-branch
 
 ---
 
-## What is Gatomia Code Wiki?
+## What is GatomIA Code Wiki?
 
 GatoWiki is an open-source framework for **automated repository-level documentation** across seven programming languages. It generates holistic, architecture-aware documentation that captures not only individual functions but also their cross-file, cross-module, and system-level interactions.
 
