@@ -3,18 +3,18 @@ requires = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "codewiki"
-version = "1.0.0"
+name = "gatowiki"
+version = "0.25.0"
 description = "Transform codebases into comprehensive documentation using AI-powered analysis"
 readme = "README.md"
 requires-python = ">=3.12"
 license = {text = "MIT"}
 authors = [
-    {name = "CodeWiki Contributors"}
+    {name = "EITA"}
 ]
 keywords = ["documentation", "code-analysis", "ai", "llm", "developer-tools"]
 classifiers = [
-    "Development Status :: 4 - Beta",
+    "Development Status :: 1 - Alpha",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
@@ -69,35 +69,34 @@ dev = [
 ]
 
 [project.scripts]
-codewiki = "codewiki.cli.main:cli"
+gatowiki = "gatowiki.cli.main:cli"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/codewiki"
-Documentation = "https://github.com/yourusername/codewiki/docs"
-Repository = "https://github.com/yourusername/codewiki"
-Issues = "https://github.com/yourusername/codewiki/issues"
+Homepage = "https://github.com/yourusername/gatowiki"
+Documentation = "https://github.com/yourusername/gatowiki/docs"
+Repository = "https://github.com/yourusername/gatowiki"
+Issues = "https://github.com/yourusername/gatowiki/issues"
 
 [tool.setuptools]
 packages = [
-    "codewiki", 
-    "codewiki.cli", 
-    "codewiki.cli.commands", 
-    "codewiki.cli.models", 
-    "codewiki.cli.utils", 
-    "codewiki.cli.adapters",
-    "codewiki.src",
-    "codewiki.src.be",
-    "codewiki.src.be.agent_tools",
-    "codewiki.src.be.dependency_analyzer",
-    "codewiki.src.be.dependency_analyzer.analysis",
-    "codewiki.src.be.dependency_analyzer.analyzers",
-    "codewiki.src.be.dependency_analyzer.models",
-    "codewiki.src.be.dependency_analyzer.utils",
-    "codewiki.src.fe"
+    "gatowiki", 
+    "gatowiki.cli", 
+    "gatowiki.cli.commands", 
+    "gatowiki.cli.models", 
+    "gatowiki.cli.utils", 
+    "gatowiki.cli.adapters",
+    "gatowiki.src",
+    "gatowiki.src.be",
+    "gatowiki.src.be.dependency_analyzer",
+    "gatowiki.src.be.dependency_analyzer.analysis",
+    "gatowiki.src.be.dependency_analyzer.analyzers",
+    "gatowiki.src.be.dependency_analyzer.models",
+    "gatowiki.src.be.dependency_analyzer.utils",
+    "gatowiki.src.fe"
 ]
 
 [tool.setuptools.package-data]
-codewiki = ["templates/**/*", "py.typed"]
+gatowiki = ["templates/**/*", "py.typed"]
 
 [tool.black]
 line-length = 100
@@ -119,5 +118,5 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=codewiki --cov-report=term-missing"
+addopts = "-v --cov=gatowiki --cov-report=term-missing"
 

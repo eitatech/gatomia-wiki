@@ -1,12 +1,12 @@
 # Development Guide
 
-This guide provides information for developers who want to contribute to or extend CodeWiki.
+This guide provides information for developers who want to contribute to or extend GatoWiki.
 
 ## Project Structure
 
 ```
-codewiki/
-├── codewiki/                 # Main package
+gatowiki/
+├── gatowiki/                 # Main package
 │   ├── cli/                  # CLI implementation
 │   │   ├── commands/         # CLI commands (config, generate)
 │   │   ├── models/           # Data models
@@ -53,8 +53,8 @@ codewiki/
 
 ```bash
 # Clone the repository
-git clone https://github.com/FSoft-AI4Code/CodeWiki.git
-cd CodeWiki
+git clone https://github.com/eitatech/gatomia-wiki.git
+cd GatoWiki
 
 # Create virtual environment
 python3.12 -m venv .venv
@@ -165,7 +165,7 @@ pytest
 pytest tests/test_dependency_analyzer.py
 
 # Run with coverage
-pytest --cov=codewiki tests/
+pytest --cov=gatowiki tests/
 ```
 
 ## Code Style
@@ -209,7 +209,7 @@ graph TB
 
 ```bash
 # CLI
-codewiki generate --verbose
+gatowiki analyze --verbose
 
 # Environment variable
 export CODEWIKI_LOG_LEVEL=DEBUG
@@ -239,6 +239,6 @@ export CODEWIKI_LOG_LEVEL=DEBUG
 ## Support
 
 For development questions:
-- GitHub Issues: https://github.com/FSoft-AI4Code/CodeWiki/issues
+- GitHub Issues: https://github.com/FSoft-AI4Code/GatoWiki/issues
 - Main Documentation: [README.md](README.md)
 

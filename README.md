@@ -1,4 +1,4 @@
-<h1 align="center">CodeWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
+<h1 align="center">GatoWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
 
 <p align="center">
   <strong>AI-Powered Repository Documentation Generation</strong> • <strong>Multi-Language Support</strong> • <strong>Architecture-Aware Analysis</strong>
@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://python.org/"><img alt="Python version" src="https://img.shields.io/badge/python-3.12+-blue?style=flat-square" /></a>
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" /></a>
-  <a href="https://github.com/FSoft-AI4Code/CodeWiki/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/FSoft-AI4Code/CodeWiki?style=flat-square" /></a>
+  <a href="https://github.com/FSoft-AI4Code/GatoWiki/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/FSoft-AI4Code/GatoWiki?style=flat-square" /></a>
   <a href="https://arxiv.org/abs/2510.24428"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2510.24428-b31b1b?style=flat-square" /></a>
 </p>
 
@@ -23,57 +23,94 @@
 </p>
 
 <p align="center">
-  <img src="./img/framework-overview.png" alt="CodeWiki Framework" width="600" style="border: 2px solid #e1e4e8; border-radius: 12px; padding: 20px;"/>
+  <img src="./img/framework-overview.png" alt="GatoWiki Framework" width="600" style="border: 2px solid #e1e4e8; border-radius: 12px; padding: 20px;"/>
 </p>
 
 ---
 
+> **⚠️ IMPORTANT: GatoWiki v0.25.5 requires GitHub Copilot**  
+> This version uses GitHub Copilot agents instead of direct API calls.  
+> [Migration Guide](./docs/migration-to-github-copilot.md) | [Integration Guide](./docs/github-copilot-integration.md)
+
 ## Quick Start
 
-### 1. Install CodeWiki
+### 1. Install GatoWiki
 
 ```bash
 # Install from source
-pip install git+https://github.com/FSoft-AI4Code/CodeWiki.git
+pip install git+https://github.com/eitatech/gatomia-wiki.git
 
 # Verify installation
-codewiki --version
+gatowiki --version  # Should show 2.0.0+
 ```
 
-### 2. Configure Your Environment
+### 2. Verify GitHub Copilot Access
+
+**Prerequisites:**
+- GitHub Copilot subscription (Individual, Business, or Enterprise)
+- IDE with Copilot support (VS Code, IntelliJ, etc.)
 
 ```bash
-codewiki config set \
-  --api-key YOUR_API_KEY \
-  --base-url https://api.anthropic.com \
-  --main-model claude-sonnet-4 \
-  --cluster-model claude-sonnet-4
+# No API key configuration needed!
+# GitHub Copilot handles authentication
 ```
 
 ### 3. Generate Documentation
 
-```bash
-# Navigate to your project
-cd /path/to/your/project
+Open **GitHub Copilot Chat** in your IDE and simply say:
 
-# Generate documentation
-codewiki generate
-
-# Generate with HTML viewer for GitHub Pages
-codewiki generate --github-pages --create-branch
+```
+Generate documentation
 ```
 
-**That's it!** Your documentation will be generated in `./docs/` with comprehensive repository-level analysis.
+That's it! The agent will automatically:
+1. Run `gatowiki analyze` if needed
+2. Detect all modules in your repository
+3. Generate comprehensive documentation
+4. Create architecture diagrams
+
+**Other commands:**
+```
+Update documentation           # Skip existing
+Document the cli module        # Single module
+```
+
+### 4. Publish to GitHub Pages (Optional)
+
+```bash
+gatowiki publish --github-pages --create-branch
+```
+
+### Workflow (v0.25.5)
+
+```
+┌────────────────────────────────────────────────────┐
+│     "Generate documentation"                       │
+│              │                                      │
+│              ▼                                      │
+│  ┌────────────────┐   ┌───────────────────────┐   │
+│  │ Auto-analyze   │──▶│ Generate docs for    │   │
+│  │ (if needed)    │   │ each module          │   │
+│  └────────────────┘   └───────────────────────┘   │
+│                              │                      │
+│                              ▼                      │
+│                     ┌───────────────────────┐      │
+│                     │ Write files to       │      │
+│                     │ docs/*.md            │      │
+│                     └───────────────────────┘      │
+└────────────────────────────────────────────────────┘
+              GitHub Copilot Agent
+```
 
 ### Usage Example
 
-![CLI Usage Example](https://github.com/FSoft-AI4Code/CodeWiki/releases/download/assets/cli-usage-example.gif)
+![CLI Usage Example](https://github.com/FSoft-AI4Code/GatoWiki/releases/download/assets/cli-usage-example.gif)
 
 ---
 
-## What is CodeWiki?
+## What is GatoWiki?
 
-CodeWiki is an open-source framework for **automated repository-level documentation** across seven programming languages. It generates holistic, architecture-aware documentation that captures not only individual functions but also their cross-file, cross-module, and system-level interactions.
+GatoWiki is an open-source framework for **automated repository-level documentation** across seven programming languages. It generates holistic, architecture-aware documentation that captures not only individual functions but also their cross-file, cross-module, and system-level interactions.
 
 ### Key Innovations
 
@@ -91,49 +128,73 @@ CodeWiki is an open-source framework for **automated repository-level documentat
 
 ## CLI Commands
 
-### Configuration Management
+### Code Analysis
 
 ```bash
-# Set up your API configuration
-codewiki config set \
-  --api-key <your-api-key> \
-  --base-url <provider-url> \
-  --main-model <model-name> \
-  --cluster-model <model-name>
-
-# Show current configuration
-codewiki config show
-
-# Validate your configuration
-codewiki config validate
-```
-
-### Documentation Generation
-
-```bash
-# Basic generation
-codewiki generate
+# Run dependency analysis and module clustering
+gatowiki analyze
 
 # Custom output directory
-codewiki generate --output ./documentation
+gatowiki analyze --output ./documentation
 
-# Create git branch for documentation
-codewiki generate --create-branch
+# Filter by languages
+gatowiki analyze --languages python,typescript
 
-# Generate HTML viewer for GitHub Pages
-codewiki generate --github-pages
+# Limit module depth
+gatowiki analyze --max-depth 3
 
 # Enable verbose logging
-codewiki generate --verbose
-
-# Full-featured generation
-codewiki generate --create-branch --github-pages --verbose
+gatowiki analyze --verbose
 ```
 
-### Configuration Storage
+**What it does:**
+- Parses source code with Tree-sitter
+- Builds dependency graphs
+- Clusters modules hierarchically
+- Generates `module_tree.json` and `first_module_tree.json`
+- **Does NOT call any LLM APIs**
 
-- **API keys**: Securely stored in system keychain (macOS Keychain, Windows Credential Manager, Linux Secret Service)
-- **Settings**: `~/.codewiki/config.json`
+### Documentation Generation (via GitHub Copilot)
+
+Open GitHub Copilot Chat and use simple commands:
+
+```
+Generate documentation              # Full repository
+Update documentation                # Skip existing docs
+Document the cli module             # Single module
+Regenerate all documentation        # Overwrite all
+```
+
+The agent automatically:
+- Runs `gatowiki analyze` if module_tree.json is missing
+- Detects all modules in your codebase
+- Generates comprehensive docs with diagrams
+- Skips already-documented modules (unless regenerating)
+
+### Publishing
+
+```bash
+# Generate HTML viewer
+gatowiki publish --github-pages
+
+# Create gh-pages branch
+gatowiki publish --github-pages --create-branch
+
+# Custom output
+gatowiki publish --output ./documentation --github-pages
+```
+
+### Configuration (Optional)
+
+```bash
+# Set default output directory
+gatowiki config set --output ./docs
+
+# Show current configuration
+gatowiki config show
+```
+
+**Note:** API key configuration removed in v0.25.5. GitHub Copilot handles authentication.
 
 ---
 
@@ -157,24 +218,33 @@ Generated documentation includes both **textual descriptions** and **visual arti
 
 ```
 ./docs/
-├── overview.md              # Repository overview (start here!)
-├── module1.md               # Module documentation
-├── module2.md               # Additional modules...
-├── module_tree.json         # Hierarchical module structure
-├── first_module_tree.json   # Initial clustering result
-├── metadata.json            # Generation metadata
-└── index.html               # Interactive viewer (with --github-pages)
+├── overview.md               # Repository overview (start here!)
+├── module1.md                # Module documentation
+├── module2.md                # Additional modules...
+├── module_tree.json          # Hierarchical module structure (from analyze)
+├── first_module_tree.json    # Initial clustering result (from analyze)
+├── analysis_metadata.json    # Analysis statistics (from analyze)
+└── index.html                # Interactive viewer (from publish)
 ```
+
+**Analysis Phase** (`gatowiki analyze`):
+- Generates: `module_tree.json`, `first_module_tree.json`, `analysis_metadata.json`
+
+**Documentation Phase** (GitHub Copilot):
+- Generates: `overview.md`, `module1.md`, `module2.md`, etc.
+
+**Publishing Phase** (`gatowiki publish`):
+- Generates: `index.html` for GitHub Pages
 
 ---
 
 ## Experimental Results
 
-CodeWiki has been evaluated on **CodeWikiBench**, the first benchmark specifically designed for repository-level documentation quality assessment.
+GatoWiki has been evaluated on **GatoWikiBench**, the first benchmark specifically designed for repository-level documentation quality assessment.
 
 ### Performance by Language Category
 
-| Language Category | CodeWiki (Sonnet-4) | DeepWiki | Improvement |
+| Language Category | GatoWiki (Sonnet-4) | DeepWiki | Improvement |
 |-------------------|---------------------|----------|-------------|
 | High-Level (Python, JS, TS) | **79.14%** | 68.67% | **+10.47%** |
 | Managed (C#, Java) | **68.84%** | 64.80% | **+4.04%** |
@@ -183,7 +253,7 @@ CodeWiki has been evaluated on **CodeWikiBench**, the first benchmark specifical
 
 ### Results on Representative Repositories
 
-| Repository | Language | LOC | CodeWiki-Sonnet-4 | DeepWiki | Improvement |
+| Repository | Language | LOC | GatoWiki-Sonnet-4 | DeepWiki | Improvement |
 |------------|----------|-----|-------------------|----------|-------------|
 | All-Hands-AI--OpenHands | Python | 229K | **82.45%** | 73.04% | **+9.41%** |
 | puppeteer--puppeteer | TypeScript | 136K | **83.00%** | 64.46% | **+18.54%** |
@@ -199,7 +269,7 @@ CodeWiki has been evaluated on **CodeWikiBench**, the first benchmark specifical
 
 ### Architecture Overview
 
-CodeWiki employs a three-stage process for comprehensive documentation generation:
+GatoWiki employs a three-stage process for comprehensive documentation generation:
 
 1. **Hierarchical Decomposition**: Uses dynamic programming-inspired algorithms to partition repositories into coherent modules while preserving architectural context across multiple granularity levels.
 
@@ -227,33 +297,41 @@ CodeWiki employs a three-stage process for comprehensive documentation generatio
 ## Requirements
 
 - **Python 3.12+**
-- **Node.js** (for Mermaid diagram validation)
-- **LLM API access** (Anthropic Claude, OpenAI, etc.)
-- **Git** (for branch creation features)
+- **GitHub Copilot** (Individual, Business, or Enterprise subscription)
+- **IDE with Copilot support** (VS Code, IntelliJ IDEA, Visual Studio, etc.)
+- **Node.js** (optional, for Mermaid diagram validation)
+- **Git** (optional, for branch creation features)
 
 ---
 
 ## Additional Resources
 
 ### Documentation & Guides
-- **[Docker Deployment](docker/DOCKER_README.md)** - Containerized deployment instructions
-- **[Development Guide](DEVELOPMENT.md)** - Project structure, architecture, and contributing guidelines
-- **[CodeWikiBench](https://github.com/FSoft-AI4Code/CodeWikiBench)** - Repository-level documentation benchmark
-- **[Live Demo](https://fsoft-ai4code.github.io/codewiki-demo/)** - Interactive demo and examples
+
+**GitHub Copilot Integration (v0.25.5+)**:
+- 📖 **[GitHub Copilot Integration Guide](./docs/github-copilot-integration.md)** - Complete workflow, setup, and usage guide
+- 🔄 **[Migration Guide](./docs/migration-to-github-copilot.md)** - Migrating from v1.x to v0.25.5
+- 🎨 **[Agent Customization Guide](./docs/customizing-agents.md)** - Customize agents for your team
+
+**General Resources**:
+- 🐳 **[Docker Deployment](docker/DOCKER_README.md)** - Containerized deployment instructions
+- 🛠️ **[Development Guide](DEVELOPMENT.md)** - Project structure, architecture, and contributing guidelines
+- 📊 **[GatoWikiBench](https://github.com/FSoft-AI4Code/GatoWikiBench)** - Repository-level documentation benchmark
+- 🎬 **[Live Demo](https://fsoft-ai4code.github.io/gatowiki-demo/)** - Interactive demo and examples
 
 ### Academic Resources
 - **[Paper](https://arxiv.org/abs/2510.24428)** - Full research paper with detailed methodology and results
-- **[Citation](#citation)** - How to cite CodeWiki in your research
+- **[Citation](#citation)** - How to cite GatoWiki in your research
 
 ---
 
 ## Citation
 
-If you use CodeWiki in your research, please cite:
+If you use GatoWiki in your research, please cite:
 
 ```bibtex
-@misc{hoang2025codewikievaluatingaisability,
-      title={CodeWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases},
+@misc{hoang2025gatowikievaluatingaisability,
+      title={GatoWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases},
       author={Anh Nguyen Hoang and Minh Le-Anh and Bach Le and Nghi D. Q. Bui},
       year={2025},
       eprint={2510.24428},
@@ -268,11 +346,11 @@ If you use CodeWiki in your research, please cite:
 ## Star History
 
 <p align="center">
-  <a href="https://star-history.com/#FSoft-AI4Code/CodeWiki&Date">
+  <a href="https://star-history.com/#FSoft-AI4Code/GatoWiki&Date">
    <picture>
-     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/CodeWiki&type=Date&theme=dark" />
-     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/CodeWiki&type=Date" />
-     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=FSoft-AI4Code/CodeWiki&type=Date" />
+     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date&theme=dark" />
+     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date" />
+     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date" />
    </picture>
   </a>
 </p>

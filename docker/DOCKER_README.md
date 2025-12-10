@@ -1,10 +1,10 @@
-# CodeWiki Docker Setup
+# GatoWiki Docker Setup
 
-This document explains how to run CodeWiki using Docker and Docker Compose.
+This document explains how to run GatoWiki using Docker and Docker Compose.
 
 ## Overview
 
-The Docker setup provides a containerized environment for running the CodeWiki web application, which allows you to generate documentation for GitHub repositories through a web interface.
+The Docker setup provides a containerized environment for running the GatoWiki web application, which allows you to generate documentation for GitHub repositories through a web interface.
 
 ## File Structure
 
@@ -28,7 +28,7 @@ The Dockerfile builds from the project root context to include all necessary app
 
 ```bash
 git clone <repository-url>
-cd CodeWiki
+cd GatoWiki
 ```
 
 ### 2. Set Up Environment Variables
@@ -56,14 +56,14 @@ APP_PORT=8000
 
 # Optional: Logfire Configuration (for monitoring)
 LOGFIRE_TOKEN=
-LOGFIRE_PROJECT_NAME=codewiki
-LOGFIRE_SERVICE_NAME=codewiki
+LOGFIRE_PROJECT_NAME=gatowiki
+LOGFIRE_SERVICE_NAME=gatowiki
 ```
 
 ### 3. Create Docker Network
 
 ```bash
-docker network create codewiki-network
+docker network create gatowiki-network
 ```
 
 ### 4. Start the Services
@@ -83,15 +83,15 @@ The application will be available at the port specified in your `.env` file (def
 
 ## Docker Compose Configuration
 
-The `docker-compose.yml` file defines the CodeWiki service with the following features:
+The `docker-compose.yml` file defines the GatoWiki service with the following features:
 
 ### Service Configuration
 
-- **Image**: `codewiki:0.0.1`
+- **Image**: `gatowiki:0.0.1`
 - **Build Context**: Parent directory (`.` relative to docker/)
-- **Container Name**: `codewiki`
+- **Container Name**: `gatowiki`
 - **Port Mapping**: `${APP_PORT:-8000}:8000`
-- **Network**: `codewiki-network` (external)
+- **Network**: `gatowiki-network` (external)
 
 ### Environment Variables
 
@@ -132,7 +132,7 @@ The container is set to restart automatically unless explicitly stopped (`restar
 
 ## Dockerfile Details
 
-The Dockerfile (`docker/Dockerfile`) builds the CodeWiki image with:
+The Dockerfile (`docker/Dockerfile`) builds the GatoWiki image with:
 
 ### Base Image
 - Python 3.12 slim image for smaller size
@@ -155,7 +155,7 @@ The Dockerfile (`docker/Dockerfile`) builds the CodeWiki image with:
 ### Runtime Configuration
 - **Working Directory**: `/app`
 - **Exposed Port**: `8000`
-- **Entry Point**: `python codewiki/run_web_app.py --host 0.0.0.0 --port 8000`
+- **Entry Point**: `python gatowiki/run_web_app.py --host 0.0.0.0 --port 8000`
 
 ---
 
@@ -172,7 +172,7 @@ cd docker
 docker-compose logs -f
 
 # View specific service
-docker logs codewiki -f
+docker logs gatowiki -f
 ```
 
 ### Stop Services
@@ -219,7 +219,7 @@ docker-compose up -d --build
 ### Access Container Shell
 
 ```bash
-docker exec -it codewiki /bin/bash
+docker exec -it gatowiki /bin/bash
 ```
 
 ---
@@ -271,12 +271,12 @@ docker-compose -f docker/docker-compose.yml up -d
 Check logs for errors:
 
 ```bash
-docker logs codewiki
+docker logs gatowiki
 ```
 
 Common issues:
 - **Invalid API key**: Verify `LLM_API_KEY` in `.env`
-- **Network not found**: Create network with `docker network create codewiki-network`
+- **Network not found**: Create network with `docker network create gatowiki-network`
 - **Port conflict**: Change `APP_PORT` in `.env`
 
 ### Health Check Failing
@@ -286,10 +286,10 @@ Common issues:
 curl http://localhost:8000/
 
 # Check container health status
-docker inspect codewiki --format='{{.State.Health.Status}}'
+docker inspect gatowiki --format='{{.State.Health.Status}}'
 
 # View health check logs
-docker inspect codewiki --format='{{range .State.Health.Log}}{{.Output}}{{end}}'
+docker inspect gatowiki --format='{{range .State.Health.Log}}{{.Output}}{{end}}'
 ```
 
 ### Permission Issues with Volumes
@@ -302,7 +302,7 @@ sudo chown -R $(id -u):$(id -g) output/
 
 # Or run container with user mapping
 docker-compose -f docker/docker-compose.yml down
-# Add to docker-compose.yml under 'codewiki' service:
+# Add to docker-compose.yml under 'gatowiki' service:
 # user: "${UID}:${GID}"
 ```
 
@@ -324,7 +324,7 @@ For private repositories:
 
 3. Add GitHub to known_hosts:
    ```bash
-   docker exec -it codewiki ssh-keyscan github.com >> /root/.ssh/known_hosts
+   docker exec -it gatowiki ssh-keyscan github.com >> /root/.ssh/known_hosts
    ```
 
 ---
@@ -344,7 +344,7 @@ For private repositories:
 ```yaml
 # Use secrets instead of .env file
 services:
-  codewiki:
+  gatowiki:
     secrets:
       - llm_api_key
     environment:
@@ -361,7 +361,7 @@ Add resource limits in production:
 
 ```yaml
 services:
-  codewiki:
+  gatowiki:
     deploy:
       resources:
         limits:
@@ -411,7 +411,7 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
       - OPENAI_API_KEY=${OPENAI_API_KEY}
     networks:
-      - codewiki-network
+      - gatowiki-network
 ```
 
 ---
@@ -427,10 +427,10 @@ services:
 ## Support
 
 For issues related to Docker deployment:
-1. Check logs: `docker logs codewiki`
-2. Verify configuration: `docker exec codewiki env | grep -E '(LLM|APP)'`
-3. Test connectivity: `docker exec codewiki curl -I http://localhost:8000`
-4. Report issues: https://github.com/yourusername/codewiki/issues
+1. Check logs: `docker logs gatowiki`
+2. Verify configuration: `docker exec gatowiki env | grep -E '(LLM|APP)'`
+3. Test connectivity: `docker exec gatowiki curl -I http://localhost:8000`
+4. Report issues: https://github.com/yourusername/gatowiki/issues
 
 ---
 
