@@ -1,4 +1,4 @@
-<h1 align="center">GatoWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
+<h1 align="center">Gatomia Code Wiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases</h1>
 
 <p align="center">
   <strong>AI-Powered Repository Documentation Generation</strong> • <strong>Multi-Language Support</strong> • <strong>Architecture-Aware Analysis</strong>
@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://python.org/"><img alt="Python version" src="https://img.shields.io/badge/python-3.12+-blue?style=flat-square" /></a>
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" /></a>
-  <a href="https://github.com/FSoft-AI4Code/GatoWiki/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/FSoft-AI4Code/GatoWiki?style=flat-square" /></a>
+  <a href="https://github.com/eitatech/gatomia-wiki/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/eitatech/gatomia-wiki?style=flat-square" /></a>
   <a href="https://arxiv.org/abs/2510.24428"><img alt="arXiv" src="https://img.shields.io/badge/arXiv-2510.24428-b31b1b?style=flat-square" /></a>
 </p>
 
@@ -20,10 +20,6 @@
   <a href="#cli-commands"><strong>CLI Commands</strong></a> •
   <a href="#documentation-output"><strong>Output Structure</strong></a> •
   <a href="https://arxiv.org/abs/2510.24428"><strong>Paper</strong></a>
-</p>
-
-<p align="center">
-  <img src="./img/framework-overview.png" alt="GatoWiki Framework" width="600" style="border: 2px solid #e1e4e8; border-radius: 12px; padding: 20px;"/>
 </p>
 
 ---
@@ -86,29 +82,25 @@ gatowiki publish --github-pages --create-branch
 ```
 ┌────────────────────────────────────────────────────┐
 │     "Generate documentation"                       │
-│              │                                      │
-│              ▼                                      │
-│  ┌────────────────┐   ┌───────────────────────┐   │
-│  │ Auto-analyze   │──▶│ Generate docs for    │   │
-│  │ (if needed)    │   │ each module          │   │
-│  └────────────────┘   └───────────────────────┘   │
-│                              │                      │
-│                              ▼                      │
+│              │                                     │
+│              ▼                                     │
+│  ┌────────────────┐   ┌───────────────────────┐    │
+│  │ Auto-analyze   │──▶│ Generate docs for     │    │
+│  │ (if needed)    │   │ each module           │    │
+│  └────────────────┘   └───────────────────────┘    │
+│                              │                     │
+│                              ▼                     │
 │                     ┌───────────────────────┐      │
-│                     │ Write files to       │      │
-│                     │ docs/*.md            │      │
+│                     │ Write files to        │      │
+│                     │ docs/*.md             │      │
 │                     └───────────────────────┘      │
 └────────────────────────────────────────────────────┘
               GitHub Copilot Agent
 ```
 
-### Usage Example
-
-![CLI Usage Example](https://github.com/FSoft-AI4Code/GatoWiki/releases/download/assets/cli-usage-example.gif)
-
 ---
 
-## What is GatoWiki?
+## What is Gatomia Code Wiki?
 
 GatoWiki is an open-source framework for **automated repository-level documentation** across seven programming languages. It generates holistic, architecture-aware documentation that captures not only individual functions but also their cross-file, cross-module, and system-level interactions.
 
@@ -122,7 +114,7 @@ GatoWiki is an open-source framework for **automated repository-level documentat
 
 ### Supported Languages
 
-**🐍 Python** • **☕ Java** • **🟨 JavaScript** • **🔷 TypeScript** • **⚙️ C** • **🔧 C++** • **🪟 C#**
+**Python** • **Java** • **JavaScript** • **TypeScript** • **C** • **🔧 C++** • **C#**
 
 ---
 
@@ -240,7 +232,7 @@ Generated documentation includes both **textual descriptions** and **visual arti
 
 ## Experimental Results
 
-GatoWiki has been evaluated on **GatoWikiBench**, the first benchmark specifically designed for repository-level documentation quality assessment.
+GatoWiki has been evaluated on **CodeWikiBench**, the first benchmark specifically designed for repository-level documentation quality assessment.
 
 ### Performance by Language Category
 
@@ -320,41 +312,7 @@ GatoWiki employs a three-stage process for comprehensive documentation generatio
 - 🎬 **[Live Demo](https://fsoft-ai4code.github.io/gatowiki-demo/)** - Interactive demo and examples
 
 ### Academic Resources
-- **[Paper](https://arxiv.org/abs/2510.24428)** - Full research paper with detailed methodology and results
-- **[Citation](#citation)** - How to cite GatoWiki in your research
-
----
-
-## Citation
-
-If you use GatoWiki in your research, please cite:
-
-```bibtex
-@misc{hoang2025gatowikievaluatingaisability,
-      title={GatoWiki: Evaluating AI's Ability to Generate Holistic Documentation for Large-Scale Codebases},
-      author={Anh Nguyen Hoang and Minh Le-Anh and Bach Le and Nghi D. Q. Bui},
-      year={2025},
-      eprint={2510.24428},
-      archivePrefix={arXiv},
-      primaryClass={cs.SE},
-      url={https://arxiv.org/abs/2510.24428},
-}
-```
-
----
-
-## Star History
-
-<p align="center">
-  <a href="https://star-history.com/#FSoft-AI4Code/GatoWiki&Date">
-   <picture>
-     <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date&theme=dark" />
-     <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date" />
-     <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=FSoft-AI4Code/GatoWiki&type=Date" />
-   </picture>
-  </a>
-</p>
-
+- **[Paper](https://arxiv.org/abs/2510.24428)** - Full research paper with detailed methodology and results from the original research that GatoWiki was created.
 ---
 
 ## License
