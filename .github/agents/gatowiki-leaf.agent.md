@@ -348,8 +348,8 @@ obj.MethodName(value);
    | Original module_name | Normalized filename |
    |---------------------|---------------------|
    | `src` or root module | `overview.md` |
-   | `src/core` or `src.core` or `src-be` | `backend.md` |
-   | `src/web` or `src.fe` or `src-fe` | `frontend.md` |
+   | `src/core` or `src.core` or `src-core` | `backend.md` |
+   | `src/web` or `src.web` or `src-web` | `frontend.md` |
    | `cli` | `cli.md` |
    | `api` | `api.md` |
    | `utils` or `utilities` | `utils.md` |
@@ -365,7 +365,7 @@ obj.MethodName(value);
    ```
    1. IF module is root/repository → "overview.md"
    2. IF contains "src/core" or "src.core" or "backend" → "backend.md"
-   3. IF contains "src/web" or "src.fe" or "frontend" → "frontend.md"
+   3. IF contains "src/web" or "src.web" or "frontend" → "frontend.md"
    4. IF contains "/" → Take last segment after "/"
    5. IF contains "." → Replace "." with "-"
    6. Convert to lowercase

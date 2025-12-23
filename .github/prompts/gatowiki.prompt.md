@@ -482,7 +482,7 @@ Guide for handling errors during documentation generation.
 |-------------------|---------------------|----------|
 | Root/repository level | `overview.md` | `src` → `overview.md` |
 | Backend modules | `backend.md` | `src/core`, `src.core` → `backend.md` |
-| Frontend modules | `frontend.md` | `src/web`, `src.fe` → `frontend.md` |
+| Frontend modules | `frontend.md` | `src/web`, `src.web` → `frontend.md` |
 | Path separators | Use last segment | `api/routes` → `routes.md` |
 | Dot separators | Replace with dash | `api.routes` → `api-routes.md` |
 | CamelCase/PascalCase | Convert to kebab-case | `UserService` → `user-service.md` |

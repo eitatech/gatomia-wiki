@@ -202,8 +202,8 @@ sequenceDiagram
    | Original module_name | Normalized filename |
    |---------------------|---------------------|
    | `src` or root module | `overview.md` |
-   | `src/core` or `src.core` or `src-be` | `backend.md` |
-   | `src/web` or `src.fe` or `src-fe` | `frontend.md` |
+   | `src/core` or `src.core` or `src-core` | `backend.md` |
+   | `src/web` or `src.web` or `src-web` | `frontend.md` |
    | `cli` | `cli.md` |
    | `api` | `api.md` |
    | `utils` or `utilities` | `utils.md` |
@@ -219,7 +219,7 @@ sequenceDiagram
    ```
    1. IF module is root/repository level → "overview.md"
    2. IF module_name contains "src/core" or "src.core" or "backend" → "backend.md"
-   3. IF module_name contains "src/web" or "src.fe" or "frontend" → "frontend.md"
+   3. IF module_name contains "src/web" or "src.web" or "frontend" → "frontend.md"
    4. IF module_name contains "/" → Take last part after "/"
    5. IF module_name contains "." → Replace "." with "-"
    6. Convert to lowercase
