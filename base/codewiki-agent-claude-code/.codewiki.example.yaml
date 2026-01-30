@@ -1,0 +1,248 @@
+# Configuração do CodeWiki Documentation Agent
+# Copie este arquivo para a raiz do seu repositório como .codewiki.yaml
+
+# Configurações de saída
+output:
+  # Diretório onde a documentação será gerada
+  directory: ./docs
+  
+  # Idioma da documentação (pt-BR, en-US, es-ES, etc)
+  language: pt-BR
+  
+  # Gerar em múltiplos idiomas
+  # multilingual:
+  #   - pt-BR: ./docs/pt-BR/
+  #   - en-US: ./docs/en-US/
+
+# Configurações de análise
+analysis:
+  # Caminhos a ignorar durante análise
+  ignore_paths:
+    - node_modules/
+    - venv/
+    - .venv/
+    - __pycache__/
+    - .git/
+    - build/
+    - dist/
+    - .pytest_cache/
+    - .coverage
+    - "*.pyc"
+    - "*.pyo"
+    - "*.so"
+    - ".DS_Store"
+  
+  # Linguagens a analisar (deixe vazio para todas suportadas)
+  languages:
+    - python
+    - javascript
+    - typescript
+    - java
+    - c
+    - cpp
+    - csharp
+  
+  # Profundidade máxima de análise
+  max_depth: 10
+
+# Configurações de documentação
+documentation:
+  # Incluir diagramas Mermaid
+  include_diagrams: true
+  
+  # Incluir exemplos de uso quando possível
+  include_usage_examples: true
+  
+  # Nível de detalhe (brief|standard|comprehensive)
+  detail_level: comprehensive
+  
+  # Incluir análise de complexidade
+  include_complexity_metrics: true
+  
+  # Incluir sugestões de melhorias
+  include_suggestions: true
+  
+  # Detectar e documentar padrões arquiteturais
+  detect_patterns: true
+
+# Configurações de formatação
+formatting:
+  # Comprimento máximo de linha
+  max_line_length: 120
+  
+  # Incluir timestamps na documentação
+  include_timestamps: false
+  
+  # Incluir informações de autor
+  include_authors: false
+  
+  # Estilo de títulos (atx|setext)
+  heading_style: atx
+  
+  # Estilo de lista (dash|asterisk|plus)
+  list_style: dash
+
+# Configurações de performance
+performance:
+  # Tamanho do lote para processamento
+  batch_size: 50
+  
+  # Processamento paralelo
+  parallel_processing: false
+  
+  # Número de workers paralelos (se habilitado)
+  max_workers: 4
+  
+  # Cache de análise
+  enable_cache: true
+  cache_dir: .codewiki/cache/
+
+# Configurações de diagramas
+diagrams:
+  # Tipos de diagramas a gerar
+  types:
+    - component_dependency
+    - module_hierarchy
+    - data_flow
+    - system_architecture
+  
+  # Estilo de diagramas Mermaid
+  theme: default  # default|forest|dark|neutral
+  
+  # Direção do fluxo
+  direction: LR  # LR (left-right), TB (top-bottom), RL, BT
+
+# Configurações de módulos
+modules:
+  # Agrupar componentes por tipo
+  group_by_type: true
+  
+  # Ordem de apresentação (alphabetical|dependency|complexity)
+  sort_order: dependency
+  
+  # Limiar de complexidade para destacar
+  complexity_threshold: 10
+
+# Configurações de componentes
+components:
+  # Incluir código-fonte inline
+  include_source: false
+  
+  # Incluir informações de git blame
+  include_git_info: false
+  
+  # Incluir histórico de mudanças
+  include_changelog: false
+
+# Configurações de testes
+testing:
+  # Incluir cobertura de testes se disponível
+  include_coverage: true
+  
+  # Destacar componentes sem testes
+  highlight_untested: true
+
+# Configurações de segurança
+security:
+  # Incluir análise de segurança
+  include_security_scan: false
+  
+  # Destacar potenciais vulnerabilidades
+  highlight_vulnerabilities: false
+
+# Configurações de custom templates
+templates:
+  # Usar templates customizados
+  use_custom: false
+  
+  # Diretório de templates
+  # directory: .codewiki/templates/
+  
+  # Templates específicos
+  # module: module_template.md
+  # component: component_template.md
+  # repository: repository_template.md
+
+# Configurações de integração
+integration:
+  # Integração com GitHub
+  github:
+    enabled: false
+    # include_issues: true
+    # include_prs: true
+    # include_wiki: true
+  
+  # Integração com Jira
+  jira:
+    enabled: false
+    # server: https://your-company.atlassian.net
+    # project_key: PROJ
+  
+  # Integração com Confluence
+  confluence:
+    enabled: false
+    # server: https://your-company.atlassian.net/wiki
+    # space_key: DOCS
+
+# Configurações de notificação
+notifications:
+  # Notificar quando documentação for gerada
+  on_success:
+    enabled: false
+    # slack_webhook: https://hooks.slack.com/...
+    # email: team@company.com
+  
+  # Notificar quando houver erros
+  on_error:
+    enabled: false
+    # slack_webhook: https://hooks.slack.com/...
+    # email: admin@company.com
+
+# Configurações de versionamento
+versioning:
+  # Incluir versão da documentação
+  enabled: false
+  
+  # Formato da versão
+  # format: "v{major}.{minor}.{patch}"
+  
+  # Manter histórico de versões
+  # keep_history: true
+  # history_dir: docs/versions/
+
+# Metadados adicionais
+metadata:
+  # Nome do projeto
+  project_name: "Meu Projeto"
+  
+  # Descrição curta
+  description: "Sistema de gerenciamento X"
+  
+  # Tags/categorias
+  tags:
+    - backend
+    - api
+    - microservices
+  
+  # Links úteis
+  links:
+    repository: https://github.com/username/repo
+    documentation: https://docs.project.com
+    issues: https://github.com/username/repo/issues
+  
+  # Informações de contato
+  contact:
+    team: "Equipe de Desenvolvimento"
+    email: dev-team@company.com
+    slack: "#dev-channel"
+
+# Configurações experimentais
+experimental:
+  # Usar IA para gerar descrições melhores
+  ai_enhanced_descriptions: false
+  
+  # Gerar testes automaticamente
+  generate_tests: false
+  
+  # Sugerir refatorações
+  suggest_refactoring: false

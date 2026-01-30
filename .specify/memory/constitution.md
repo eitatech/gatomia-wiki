@@ -36,6 +36,7 @@ Rationale for MAJOR version:
 The GatoWiki system MUST maintain clear separation between analysis, generation, and presentation layers.
 
 **Non-Negotiable Rules:**
+
 - Backend components (`src/core/`) handle all code analysis, dependency graph construction, and agent orchestration
 - CLI components (`cli/`) provide user-facing interfaces with clean command structure
 - Frontend components (`src/web/`) focus solely on web application and visualization
@@ -49,6 +50,7 @@ The GatoWiki system MUST maintain clear separation between analysis, generation,
 All core functionality MUST be accessible through a clean, intuitive command-line interface.
 
 **Non-Negotiable Rules:**
+
 - Primary commands: `config` (configuration management) and `generate` (documentation generation)
 - Configuration stored securely: API keys in system keychain, settings in `~/.gatowiki/config.json`
 - Output to stdout for success messages, stderr for errors
@@ -63,6 +65,7 @@ All core functionality MUST be accessible through a clean, intuitive command-lin
 The system MUST support comprehensive code analysis across seven programming languages with extensibility for future additions.
 
 **Non-Negotiable Rules:**
+
 - Supported languages: Python, Java, JavaScript, TypeScript, C, C++, C#
 - Each language MUST have a dedicated analyzer in `src/core/dependency_analyzer/analyzers/`
 - All analyzers MUST inherit from `BaseAnalyzer` and implement standard interfaces
@@ -77,6 +80,7 @@ The system MUST support comprehensive code analysis across seven programming lan
 All documentation generation MUST leverage LLM capabilities while maintaining provider independence and quality control.
 
 **Non-Negotiable Rules:**
+
 - LLM interactions centralized in `src/core/llm_services.py`
 - Support multiple providers through standardized interfaces (Anthropic, OpenAI, etc.)
 - Agent system (`agent_orchestrator.py`) handles recursive documentation generation with dynamic delegation
@@ -91,6 +95,7 @@ All documentation generation MUST leverage LLM capabilities while maintaining pr
 Documentation generation MUST follow a hierarchical decomposition strategy that preserves architectural context.
 
 **Non-Negotiable Rules:**
+
 - Codebase partitioned into coherent modules via `cluster_modules.py`
 - Module clustering preserves feature boundaries and architectural relationships
 - Documentation generated at multiple granularities: repository, module, component
@@ -105,6 +110,7 @@ Documentation generation MUST follow a hierarchical decomposition strategy that 
 GatoWiki exists as both a production tool and research artifact, with transparency and reproducibility as core values.
 
 **Non-Negotiable Rules:**
+
 - All code licensed under MIT License
 - Research methodology documented in published papers (arXiv 2510.24428)
 - Benchmark data and evaluation framework (GatoWikiBench) publicly available
@@ -190,6 +196,7 @@ This constitution supersedes all conflicting practices, documentation, or conven
 Complexity beyond these principles MUST be justified in feature specs. Unjustified complexity will be rejected.
 
 **Examples requiring justification:**
+
 - Additional architectural layers beyond modular separation
 - New configuration storage mechanisms beyond keychain + JSON
 - Alternative AST parsing approaches beyond Tree-sitter

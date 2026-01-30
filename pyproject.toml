@@ -3,15 +3,13 @@ requires = ["setuptools>=68.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gatowiki"
+name = "gatomia"
 version = "0.25.0"
 description = "Transform codebases into comprehensive documentation using AI-powered analysis"
 readme = "README.md"
 requires-python = ">=3.12"
-license = {text = "MIT"}
-authors = [
-    {name = "EITA"}
-]
+license = { text = "MIT" }
+authors = [{ name = "EITA" }]
 keywords = ["documentation", "code-analysis", "ai", "llm", "developer-tools"]
 classifiers = [
     "Development Status :: 1 - Alpha",
@@ -49,14 +47,12 @@ dependencies = [
     "psutil>=7.0.0",
     "PyYAML>=6.0.2",
     "mermaid-parser-py>=0.0.2",
-    "mermaid-py>=0.8.0"
+    "mermaid-py>=0.8.0",
 ]
 
 [external]
 # Node.js is required for mermaid-py which validates mermaid diagrams in generated documentation
-build-requires = [
-    { name = "nodejs", version = ">=14.0.0" }
-]
+build-requires = [{ name = "nodejs", version = ">=14.0.0" }]
 
 [project.optional-dependencies]
 dev = [
@@ -69,34 +65,34 @@ dev = [
 ]
 
 [project.scripts]
-gatowiki = "gatowiki.cli.main:cli"
+gatomia = "gatomia.cli.main:cli"
 
 [project.urls]
-Homepage = "https://github.com/yourusername/gatowiki"
-Documentation = "https://github.com/yourusername/gatowiki/docs"
-Repository = "https://github.com/yourusername/gatowiki"
-Issues = "https://github.com/yourusername/gatowiki/issues"
+Homepage = "https://github.com/eitatech/gatomia-cli"
+Documentation = "https://github.com/eitatech/gatomia-cli/docs"
+Repository = "https://github.com/eitatech/gatomia-cli"
+Issues = "https://github.com/eitatech/gatomia-cli/issues"
 
 [tool.setuptools]
 packages = [
-    "gatowiki", 
-    "gatowiki.cli", 
-    "gatowiki.cli.commands", 
-    "gatowiki.cli.models", 
-    "gatowiki.cli.utils", 
-    "gatowiki.cli.adapters",
-    "gatowiki.src",
-    "gatowiki.src.core",
-    "gatowiki.src.core.dependency_analyzer",
-    "gatowiki.src.core.dependency_analyzer.analysis",
-    "gatowiki.src.core.dependency_analyzer.analyzers",
-    "gatowiki.src.core.dependency_analyzer.models",
-    "gatowiki.src.core.dependency_analyzer.utils",
-    "gatowiki.src.web"
+    "gatomia",
+    "gatomia.cli",
+    "gatomia.cli.commands",
+    "gatomia.cli.models",
+    "gatomia.cli.utils",
+    "gatomia.cli.adapters",
+    "gatomia.src",
+    "gatomia.src.core",
+    "gatomia.src.core.dependency_analyzer",
+    "gatomia.src.core.dependency_analyzer.analysis",
+    "gatomia.src.core.dependency_analyzer.analyzers",
+    "gatomia.src.core.dependency_analyzer.models",
+    "gatomia.src.core.dependency_analyzer.utils",
+    "gatomia.src.web",
 ]
 
 [tool.setuptools.package-data]
-gatowiki = ["templates/**/*", "py.typed"]
+gatomia = ["templates/**/*", "py.typed"]
 
 [tool.black]
 line-length = 100
@@ -118,5 +114,4 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]
-addopts = "-v --cov=gatowiki --cov-report=term-missing"
-
+addopts = "-v --cov=gatomia --cov-report=term-missing"
